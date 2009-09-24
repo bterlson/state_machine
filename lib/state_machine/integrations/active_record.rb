@@ -285,7 +285,7 @@ module StateMachine
       # state value actually changed
       def write(object, attribute, value)
         result = super
-        object.send("#{self.attribute}_will_change!") if attribute == :state && object.respond_to?("#{self.attribute}_will_change!")
+        object.send("#{self.attribute}_will_change!") if attribute == self.attribute && object.respond_to?("#{self.attribute}_will_change!")
         result
       end
       
